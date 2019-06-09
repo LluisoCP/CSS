@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Form 1 CSS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="form1.css"/>
+    </head>
+    <body>
+        <form action="">
+            <h3>Fill this form to become a member</h3>
+            <p>Fields marked with &#42; are required</p>
+            <fieldset>
+                <label for="firstname">First Name;</label>
+                <input id="firstname" name="firstname" type="text" minlength="3">
+                <label for="lastname">Last Name;</label>
+                <input id="lastname" name="lastname" type="text" minlength="3">
+            </fieldset>
+            <fieldset>
+                <label for="username">User Name&#42;</label>
+                <input id="username" name="username" type="text" required minlength="5">
+                <label for="mail">E-mail&#42;</label>
+                <input id="mail" type="email" required>
+                <label for="pwd">Password&#42;</label>
+                <input id="pwd" type="password" required>
+            </fieldset>
+            <button class="outline2">Submit</button>
+        </form>
+
+
+        <script src="forms.js"></script>
+    </body>
+</html>

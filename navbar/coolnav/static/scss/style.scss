@@ -1,0 +1,293 @@
+/*Fonts*/
+
+@import url('https://fonts.googleapis.com/css?family=Gugi');
+
+/*
+Eliminar decoració de les llistes
+*/
+%nicelist {
+    list-style-type: none;
+    padding: 0;
+}
+
+/*Flex general*/
+%dispflex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Flex amb justify variable*/
+@mixin flex-var($direction, $justify, $align) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex; 
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+/*Border radius, flex, */
+
+/*
+Standaritzar els links amb colors en funció sass
+*/
+/*Definir dos mixin en funció de 3 colors: font, background i border, més propietats comunes*/
+@mixin btn($color1, $color2, $color3, $radius) {
+    color: $color1;
+    background-color: $color2;
+    border: 2px solid $color3;
+    border-radius: $radius;
+    transition: all 0.2s ease-out;
+}
+@mixin btn-hov($color1, $color2, $color3) {
+    color: $color1;
+    background-color: $color2;
+    border-color: $color3;
+}
+/*Escollir colors*/
+$color1: #fc070b;
+$color2: #c6c2c3;
+$color3: black;
+$color4: black;
+$color5: #fc070b;
+$color6: black;
+/*Escollir border radius*/
+$radius: 10px;
+/*Aplicar els mixins*/
+
+#header1 .button {
+    @include btn($color1, $color2, $color3, $radius);
+    &:hover {
+        @include btn-hov($color4, $color5, $color6);
+    }
+}
+
+
+/*General Styling*/
+body {
+    margin: 0;
+}
+body * {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*Mobile first*/
+/*Header 2*/
+$hheight1: 70px;
+$hheight2: 80px;
+$hheight3: 120px;
+
+#header2 {
+    height: $hheight1;
+    
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    background-color: rgb(255,255,255);
+    
+    #navigation {
+        height: 100%;
+        #logo {
+            height: 100%;
+            float: left;
+            a {
+                height: 100%;
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    height: 100%;
+                    object-fit: fill;
+                } 
+            }
+        }
+        #menu {
+            width: 20%;
+            height: 100%;
+            float: right;
+            label {
+                border-left: 2px solid black;
+                height: 100%;
+                width: 100%;
+                cursor: pointer;
+                @extend %dispflex;
+                i {
+                    transition: all 0.2s linear;
+                    font-size: 3em;
+                }
+            }
+            ul {
+                @extend %nicelist;
+                background-color: white;
+                border-bottom: 2px solid black;
+                width: 100vw;
+                margin: 0;
+                padding: 5px 0;
+                position: absolute;
+                left: -600px;
+                top: 68px;
+                transition: 0.3s left linear;
+                @include flex-var(row, space-evenly, center);
+                li {
+                    font-family: 'Gugi', cursive;
+                    font-size: 20px;
+                    padding: 0 15px;
+                    color: red;
+                    background-color: #c6c4c4;
+                    border: 3px solid black;
+                    border-radius: 5px;
+                    display: inline-block;
+                    text-transform: uppercase;
+                }
+            }
+            input:checked ~ ul {
+                left: 0;
+            }
+        }
+    }
+    #social {
+        ul {
+            @extend %nicelist;
+            display: none;
+        }
+    }
+}
+
+@mixin nicelist {
+    list-style-type: none;
+    padding: 0;
+}
+
+/*Flex general*/
+@mixin dispflex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*MEDIUM SIZE SCREEN (567-1200px)*/
+@media (min-width: 576px) {
+   
+    #header2 {
+        height: $hheight2;
+        #navigation {
+            height: 100%;
+            #logo {
+                height: 100%;
+                float: left;
+                a {
+                    height: 100%;
+                    img {
+                        display: block;
+                        margin: 0 auto;
+                        height: 100%;
+                        object-fit: fill;
+                    } 
+                }
+            }
+            #menu {
+
+                width: auto;
+                
+                height: 100%;
+                float: none;
+                label {
+                    display: none;
+                    border-left: none;
+                    i {
+                        display: none;
+                    }
+                }
+                ul {
+                    @include nicelist;
+                    
+                    height: 100%;
+                    background-color: none;
+                    border-bottom: none;
+                    margin: 0;
+                    padding: 5px 0;
+                    
+                    width: auto;
+                    position: static;
+                                        
+                    @include flex-var(row, space-evenly, center);
+                    li {
+                        font-family: 'Gugi', cursive;
+                        font-size: 30px;
+                        padding: 0 10px;
+                        color: red;
+                        background-color: #c6c4c4;
+                        border: 5px solid black;
+                        border-radius: 5px;
+                        display: inline-block;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*Large screen last*/
+
+@media (min-width: 1200px) {
+    #header2 {
+        background-color: black;
+        height: $hheight3;
+        #navigation {
+            display: inline-block;
+            #menu {
+                float: left;
+                ul {
+                    background-color: #c6c4c4;
+                    border-left: 2px solid black;
+                    border-right: 2px solid black;
+                    padding: 0;
+                    @include dispflex();
+                    li {
+                        background-color: transparent;
+                        border: none;
+                        border-right: 2px solid black;
+                        border-radius: 0;
+                        font-size: 40px;
+                        padding: 0 20px;
+                    }
+                    li:last-child {
+                        border: none;
+                    }
+                }
+            }
+        }
+        #social {
+            float: right;
+            height: 100%;
+            width: 15em;
+            margin-right: 2em;
+            @include dispflex();
+            ul {
+                border: 5px solid white;
+                border-radius: 20px;
+                width: 100%;
+                @include flex-var(row, space-around, center);
+                li {
+                    font-size: 2em;
+                    color: white;
+                    padding: 15px;
+                    @include dispflex();
+                }                
+            }
+        }
+    }
+}

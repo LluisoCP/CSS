@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Form 2 CSS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="form2.css"/>
+    </head>
+    <body>
+        <form action="">
+            <h3>Fill this form to become a member</h3>
+            <p class="requirements">Fields marked with &#42; are required</p>
+            <fieldset class="grid">
+                <p>Personal Information</p>
+                <label for="firstname">First Name</label>
+                <input id="firstname" name="firstname" type="text" minlength="3">
+                <label for="lastname">Last Name</label>
+                <input id="lastname" name="lastname" type="text" minlength="3">
+                <label for="birth">Date of Birth</label>
+                <input id="birth" type="date">
+            </fieldset>
+            <hr>
+            <fieldset class="grid radio">
+                <p>Nationality</p>
+                <label for="france">France</label>
+                <input id="france" name="nation" value="fr" type="radio">
+                <label for="eu">Other EU country</label>
+                <input id="eu" name="nation" value="eu" type="radio">
+                <label for="notEU">Non-EU country</label>
+                <input id="notEU" name="nation" value="notEU" type="radio">
+            </fieldset>
+            <hr>
+            <fieldset class="grid">
+                <p>Contact &amp; Credentials</p>
+                <label for="username">User Name&#42;</label>
+                <input id="username" name="username" type="text" required minlength="5">
+                <label for="mail">E-mail&#42;</label>
+                <input id="mail" type="email" required>
+                <label for="pwd">Password&#42;</label>
+                <input id="pwd" type="password" required>
+            </fieldset>
+            <hr>
+            <button class="outline2">Submit</button>
+        </form>
+
+
+        <script src="forms.js"></script>
+    </body>
+</html>

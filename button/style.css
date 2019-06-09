@@ -220,13 +220,13 @@ button {
     border-radius: 5px;
     transition: all .3s;
 }
-.outline2 {
-    background-color: rgb(120,120,120);
-}
-.outline2 button:hover {
+.outline1 button:hover {
     color: white;
     border-color: white;
     background-color: rgb(150,150,150);
+}
+.outline2 {
+    background-color: rgb(120,120,120);
 }
 .outline2 button {
     white-space: nowrap;
