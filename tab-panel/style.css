@@ -1,0 +1,79 @@
+/*General styling*/
+body {
+    margin: 0;
+    height: 100vh;
+}
+* {
+    box-sizing: border-box;
+}
+main {
+    width: 100%;
+    background-color: rgb(180,180,200);
+    position: relative;
+    height: 100%;
+}
+section {
+    border: 2px solid white;
+    border-radius: 2px;
+    /*positioning*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+}
+ul {
+    font-family: 'Timmana', sans-serif;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+li {
+    cursor: pointer;
+    background-color: #139cdb;
+    float: left;
+    width: calc(100% / 3);
+    height: 40px;
+    line-height: 48px;
+    text-align: center;
+    transition: color .3s linear;
+}
+li.active-tab {
+    color: white;
+    background-color: #0a6d9b;
+}
+li:not(.active-tab):hover {
+    color: white;
+}
+.panels {
+    font-family: 'Scada', sans-serif;
+    position: relative;
+}
+.panels article {
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.panels article.active-panel {
+    position: relative;
+    z-index: 10;
+    padding: 5px 15px;
+    background-color: #0a6d9b;
+}
+.panels article h4 {
+    text-align: center;
+}
+
+/*Mobile First*/
+@media (max-width: 600px) {
+    section {
+        width: 100%;
+    }
+}
+@media (min-width: 600px) {
+    section {
+        width: 60%;
+    }
+}
