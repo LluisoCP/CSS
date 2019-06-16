@@ -52,6 +52,8 @@ li:not(.active-tab):hover {
 }
 .panels article {
     color: white;
+    padding: 5px 15px;
+    background-color: #0a6d9b;
     position: absolute;
     left: 0;
     top: 0;
@@ -59,8 +61,6 @@ li:not(.active-tab):hover {
 .panels article.active-panel {
     position: relative;
     z-index: 10;
-    padding: 5px 15px;
-    background-color: #0a6d9b;
 }
 .panels article h4 {
     text-align: center;
